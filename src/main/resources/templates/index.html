@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<head xmlns:th="http://www.thymeleaf.org/"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org/"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/NavigationBar}">
+<head>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -40,6 +40,8 @@
 	th:href="@{https://fonts.googleapis.com/icon?family=Material+Icons}"
 	rel="stylesheet">
 
+<!--<link rel="stylesheet" href="/assets/css/footer.css">-->
+
 <script>
 	function sbm(formName) {
 		document.getElementsByName(formName)[0].submit();
@@ -69,90 +71,96 @@
 	<script th:src="@{/assets/js/fss.min.js}"></script>
 	<script th:src="@{/assets/js/scripts.min.js}"></script>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 my-2">
-				<h2>Home Icons</h2>
-			</div>
-		</div>
-	</div>
+	<div layout:fragment="contents">
 
-	<div class="container cards cards-hover">
-		<div class="row">
-			<div class="col-xs-6 col-lg-4">
-				<form th:action="@{/UserMgm}" method="get" name="UserMgm">
-					<div class="card-block-link">
-						<div class='card card-block text-xs-center'
-							onclick="sbm('UserMgm')">
-							<i class="block-icon fa fa-user-circle" aria-hidden="true"></i>
-							<h4>UserMgm</h4>
-						</div>
-					</div>
-				</form>
-			</div>
-			<div class="col-xs-6 col-lg-4">
-				<form th:action="@{/Twitter}" method="get" name="Twitter">
-					<div class="card-block-link">
-						<div class="card card-block text-xs-center"
-							onclick="sbm('Twitter')">
-							<i class="block-icon fa fa-id-card" aria-hidden="true"></i>
-							<h4>Twitter</h4>
-						</div>
-					</div>
-				</form>
-			</div>
-			<div class="col-xs-6 col-lg-4">
-				<form th:action="@{/YouTube}" method="get" name="YouTube">
-					<div class="card-block-link">
-						<div class="card card-block text-xs-center"
-							onclick="sbm('YouTube')">
-							<i class="block-icon fa fa-user-circle" aria-hidden="true"></i>
-							<h4>YouTube</h4>
-						</div>
-					</div>
-				</form>
-			</div>
-			<div class="col-xs-6 col-lg-4">
-				<form th:action="@{/Chat}" method="get" name="Chat">
-					<div class="card-block-link">
-						<div class="card card-block text-xs-center" onclick="sbm('Chat')">
-							<i class="block-icon fa fa-envelope-open" aria-hidden="true"></i>
-							<h4>Chat</h4>
-						</div>
-					</div>
-				</form>
-			</div>
-			<div class="col-xs-6 col-lg-4">
-				<form th:action="@{/Setting}" method="get" name="Setting">
-					<div class="card-block-link">
-						<div class="card card-block text-xs-center"
-							onclick="sbm('Setting')">
-							<i class="block-icon fa fa-commenting" aria-hidden="true"></i>
-							<h4>Setting</h4>
-						</div>
-					</div>
-				</form>
-			</div>
-			<div class="col-xs-6 col-lg-4">
-				<form th:action="@{/GitHub}" method="get" name="GitHub">
-					<div class="card-block-link">
-						<div class="card card-block text-xs-center"
-							onclick="sbm('GitHub')">
-							<i class="block-icon fa fa-plane" aria-hidden="true"></i>
-							<h4>GitHub</h4>
-						</div>
-					</div>
-				</form>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 my-2">
+					<h2>Home Icons</h2>
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 my-2">
-				<h2>Products</h2>
+		<div class="container cards cards-hover">
+			<div class="row">
+				<div class="col-xs-6 col-lg-4">
+					<form th:action="@{/UserMgm}" method="get" name="UserMgm">
+						<div class="card-block-link">
+							<div class='card card-block text-xs-center'
+								onclick="sbm('UserMgm')">
+								<i class="block-icon fa fa-user-circle" aria-hidden="true"></i>
+								<h4>UserMgm</h4>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-xs-6 col-lg-4">
+					<form th:action="@{/Twitter}" method="get" name="Twitter">
+						<div class="card-block-link">
+							<div class="card card-block text-xs-center"
+								onclick="sbm('Twitter')">
+								<i class="block-icon fa fa-id-card" aria-hidden="true"></i>
+								<h4>Twitter</h4>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-xs-6 col-lg-4">
+					<form th:action="@{/YouTube}" method="get" name="YouTube">
+						<div class="card-block-link">
+							<div class="card card-block text-xs-center"
+								onclick="sbm('YouTube')">
+								<i class="block-icon fa fa-user-circle" aria-hidden="true"></i>
+								<h4>YouTube</h4>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-xs-6 col-lg-4">
+					<form th:action="@{/Chat}" method="get" name="Chat">
+						<div class="card-block-link">
+							<div class="card card-block text-xs-center" onclick="sbm('Chat')">
+								<i class="block-icon fa fa-envelope-open" aria-hidden="true"></i>
+								<h4>Chat</h4>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-xs-6 col-lg-4">
+					<form th:action="@{/Setting}" method="get" name="Setting">
+						<div class="card-block-link">
+							<div class="card card-block text-xs-center"
+								onclick="sbm('Setting')">
+								<i class="block-icon fa fa-commenting" aria-hidden="true"></i>
+								<h4>Setting</h4>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-xs-6 col-lg-4">
+					<form th:action="@{/GitHub}" method="get" name="GitHub">
+						<div class="card-block-link">
+							<div class="card card-block text-xs-center"
+								onclick="sbm('GitHub')">
+								<i class="block-icon fa fa-plane" aria-hidden="true"></i>
+								<h4>GitHub</h4>
+							</div>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 my-2">
+					<h2>Products</h2>
+				</div>
+			</div>
+		</div>
+	<div class="container">
+		<div th:replace="layout/Footer ::footer"></div>
+	</div>
 	</div>
 </body>
 </html>
