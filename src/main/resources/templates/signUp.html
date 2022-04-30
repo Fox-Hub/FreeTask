@@ -8,7 +8,7 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Sign In</title>
+<title>Sign Out</title>
 
 <!-- Bootstrap core CSS -->
 <link th:href="@{/assets/css/bootstrap.min.css}" rel="stylesheet">
@@ -40,7 +40,7 @@
 	rel="stylesheet">
 </head>
 <body>
-	<section class="typography-1">
+<section class="typography-1">
 		<div class="content" style="background-image: url()">
 			<div class="content-overlay"
 				style="background-color: rgba(255, 255, 255, 0)">
@@ -48,51 +48,37 @@
 					<div class="row">
 						<div class="col-md-6 push-md-3">
 							<div class="card mdl-shadow--16dp">
-								<div th:if="${param.error}">
+								<div th:if="${errorFlag}">
 									<div class="alert alert-danger" role="alert">
-										<span class="text-danger"> ユーザー名もしくはパスワードが違います。 </span>
+										<span class="text-danger" th:text="${errorMessage}"></span>
 									</div>
 								</div>
 								<div class="content-padding">
-									<h2 class="mb-2">Sign In</h2>
-									<form class="form" th:action="@{/signIn}" method="post">
+									<h2 class="mb-2">Sign Up</h2>
+									<form class="form" th:action="@{/signOut}" method="post">
 										<!-- /.form-group -->
 										<div class="form-group">
-											<input type="text" class="form-control" id="username"
-												name="username" placeholder="Enter your username">
+											<input type="text" class="form-control" id="username" name="username"
+												placeholder="Enter your username">
 										</div>
 										<!-- /.form-group -->
 										<div class="form-group">
-											<input type="password" class="form-control" id="password"
-												name="password" placeholder="Password">
-										</div>
-										<!-- /.form-group -->
-										<div class="form-group">
-											<div class="col-xs-10">
-												ユーザー名もしくはパスワードを忘れた場合は <a href="javascript.void(0)">こちら</a>
-											</div>
+											<input type="password" class="form-control" id="password" name="password"
+												placeholder="Password">
 										</div>
 										<!-- /.form-group -->
 										<div class="form-group">
 											<div class="col-xs-2"></div>
 											<div class="col-xs-20">
 												<button type="submit" class="btn btn-blue btn-pill">
-													<i class="fa fa-sign-in" aria-hidden="true"></i> Sign In
+													<i class="fa fa-sign-in" aria-hidden="true"></i> Create
 												</button>
 											</div>
 										</div>
 										<!-- /.form-group -->
 									</form>
 									<!-- /.form -->
-									<form class="form" th:action="@{/signOut}" method="get">
-										<div class="float-right">
-											<button type="submit" class="btn btn-blue btn-pill">
-												<i class="fa fa-sign-in" aria-hidden="true"></i> Sign Up
-											</button>
-										</div>
-									</form>
 								</div>
-								
 								<!-- /.content-padding -->
 							</div>
 							<!-- /.card -->

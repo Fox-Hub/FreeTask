@@ -60,11 +60,24 @@
 					<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
 					</li>
 				</ul>
-				<form class="form-inline ml-auto" data-background-color th:action="@{/signIn}" method="get">
-					<div class="input-group">
-						<button class="btn-outline-orange btn-pill btn-lg" type="submit">Sign In</button>
-					</div>
-				</form>
+				<div class="input-group" sec:authorize="!isAuthenticated()">
+					<form class="form-inline ml-auto" data-background-color
+						th:action="@{/signIn}" method="get">
+						<button class="btn-outline-orange btn-pill btn-lg" type="submit">Sign
+							In</button>
+					</form>
+				</div>
+				<div class="input-group" sec:authorize="isAuthenticated()">
+					<form class="form-inline ml-auto" data-background-color
+						th:action="@{/signOut}" method="post">
+						<div class="text-center"
+							style="font-size: 20px; color: #FFFFFF; margin-right: 30px">
+							Login UserID : <span sec:authentication="name"></span>
+						</div>
+						<button class="btn-outline-orange btn-pill btn-lg" type="submit">Sign
+							Out</button>
+					</form>
+				</div>
 			</div>
 		</div>
 	</nav>
