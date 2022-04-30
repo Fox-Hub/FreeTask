@@ -39,7 +39,7 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-md bg-teal navbar-dark">
-		<div class="container">
+		<div class="container-fluid">
 			<a class="navbar-brand"><img
 				src="assets/images/logos/nowsquare-dark.svg" alt=""
 				style="height: 42px"></a>
@@ -60,10 +60,9 @@
 					<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
 					</li>
 				</ul>
-				<form class="form-inline ml-auto" data-background-color>
+				<form class="form-inline ml-auto" data-background-color th:action="@{/signIn}" method="get">
 					<div class="input-group">
-
-						<button class="btn-outline-orange btn-pill btn-lg">LOGIN</button>
+						<button class="btn-outline-orange btn-pill btn-lg" type="submit">Sign In</button>
 					</div>
 				</form>
 			</div>

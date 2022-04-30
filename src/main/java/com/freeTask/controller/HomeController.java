@@ -13,32 +13,32 @@ public class HomeController {
 
 	@GetMapping("/UserMgm")
 	public String UserMgm() {
-		return "UserMgm";
+		return "tile/UserMgm";
 	}
 
 	@GetMapping("/Twitter")
 	public String Twitter() {
-		return "Twitter";
+		return "tile/Twitter";
 	}
 
 	@GetMapping("/YouTube")
 	public String YouTube() {
-		return "YouTube";
+		return "tile/YouTube";
 	}
 
 	@GetMapping("Chat")
 	public String Chat() {
-		return "Chat";
+		return "tile/Chat";
 	}
 
 	@GetMapping("Setting")
 	public String Setting() {
-		return "Setting";
+		return "tile/Setting";
 	}
 
 	@GetMapping("GitHub")
 	public String GitHub() {
-		return "GitHub";
+		return "tile/GitHub";
 	}
 
 }
