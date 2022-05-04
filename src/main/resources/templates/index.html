@@ -9,7 +9,7 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
-<title>NowSquare Bootstrap 4 Creative UI Kit</title>
+<title>FreeTask</title>
 
 <!-- Bootstrap core CSS -->
 <link th:href="@{/assets/css/bootstrap.min.css}" rel="stylesheet">
@@ -83,7 +83,7 @@
 
 		<div class="container cards cards-hover">
 			<div class="row">
-				<div class="col-xs-6 col-lg-4">
+				<div class="col-xs-6 col-lg-4" sec:authorize="hasRole('ADMIN')">
 					<form th:action="@{/UserMgm}" method="get" name="UserMgm">
 						<div class="card-block-link">
 							<div class='card card-block text-xs-center'

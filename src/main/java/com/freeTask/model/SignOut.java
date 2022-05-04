@@ -5,13 +5,11 @@ import javax.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class SignIn {
+public class SignOut {
 	
 	@NotBlank(message = "ユーザーIDを入力してください")
 	private String username;
 	@NotBlank(message = "パスワードを入力してください")
 	private String password;
-	private String type;
-	private Boolean active;
 
 }
