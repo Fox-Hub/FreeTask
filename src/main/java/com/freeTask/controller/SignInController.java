@@ -10,5 +10,4 @@ public class SignInController {
 	public String signOut() {
 		return "signOut";
 	}
-
 }
