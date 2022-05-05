@@ -18,13 +18,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return new JdbcUserDetailsManager(dataSource);
 	}
 
-	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().antMatchers("/assets/css/**", "/assets/css/fonts/**", "/assets/css/images/**",
 				"/assets/css/js/**");
 	}
 
-	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/tile/UserMgm").hasRole("ADMIN")
 
