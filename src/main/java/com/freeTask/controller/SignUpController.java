@@ -13,27 +13,27 @@ import com.freeTask.service.AccountService;
 
 @Controller
 public class SignUpController {
-	
+
 	@Autowired
 	private AccountService accountService;
-	
+
 	@PostMapping("/signUp")
 	public String signUp(@Valid SignOut signOut, BindingResult bindingResult, Model model) {
-		
-		if(bindingResult.hasErrors()) {
+
+		if (bindingResult.hasErrors()) {
 			model.addAttribute("errorFlag", true);
 			model.addAttribute("errorMessage", "ユーザIDもしくはパスワードが違います。");
 			return "signOut";
 		}
-		
+
 		try {
-		accountService.createUserAccount(signOut.getUsername(), signOut.getPassword(), true);
-		}catch(Exception e) {
+			accountService.createUserAccount(signOut.getUsername(), signOut.getPassword(), true);
+		} catch (Exception e) {
 			model.addAttribute("errorFlag", true);
 			model.addAttribute("errorMessage", "既にこのユーザーは存在します。");
 			return "signOut";
 		}
-		
+
 		return "index";
 	}
 

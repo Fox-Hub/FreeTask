@@ -1,0 +1,37 @@
+{"properties": [
+  {
+    "name": "oauth.consumerKey",
+    "type": "java.lang.String",
+    "description": "A description for 'oauth.consumerKey'"
+  },
+  {
+    "name": "oauth.consumerSecret",
+    "type": "java.lang.String",
+    "description": "A description for 'oauth.consumerSecret'"
+  },
+  {
+    "name": "oauth.consumerSecret",
+    "type": "java.lang.String",
+    "description": "A description for 'oauth.consumerSecret'"
+  },
+  {
+    "name": "oauth.consumerSecret",
+    "type": "java.lang.String",
+    "description": "A description for 'oauth.consumerSecret'"
+  },
+  {
+    "name": "oauth.accessToken",
+    "type": "java.lang.String",
+    "description": "A description for 'oauth.accessToken'"
+  },
+  {
+    "name": "oauth.accessTokenSecret",
+    "type": "java.lang.String",
+    "description": "A description for 'oauth.accessTokenSecret'"
+  },
+  {
+    "name": "oauth.consumerKey",
+    "type": "java.lang.String",
+    "description": "A description for 'oauth.consumerKey'"
+  }
+]}
