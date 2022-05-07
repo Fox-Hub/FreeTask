@@ -6,7 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
+import com.freeTask.model.TwitterForm;
 import com.freeTask.service.TwitterService;
 
 @Controller
@@ -52,7 +54,7 @@ public class HomeController {
 
 		if (!tweetMap.isEmpty())
 			model.addAttribute("tweetMap", tweetMap);
-
+		
 		return "tile/twitter";
 	}
 

@@ -6,7 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.freeTask.model.TwitterForm;
 import com.freeTask.service.TwitterService;
@@ -55,8 +58,8 @@ public class TwitterController {
 		return "tile/twitter";
 	}
 	
-	@PostMapping("/twitter")
-	public String tweet(TwitterForm twitterForm) {
+	@GetMapping("/twitter/tweet")
+	public String tweet(@ModelAttribute TwitterForm twitterForm) {
 		System.out.println(twitterForm.getTweetContent());
 		twitterService.tweet(twitterForm.getTweetContent());
 		
