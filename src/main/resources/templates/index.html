@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org/"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout/NavigationBar}">
+	layout:decorate="~{layout/navigationBar}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport"
@@ -95,10 +95,10 @@
 					</form>
 				</div>
 				<div class="col-xs-6 col-lg-4">
-					<form th:action="@{/Twitter}" method="get" name="Twitter">
+					<form th:action="@{/twitter}" method="get" name="twitter">
 						<div class="card-block-link">
 							<div class="card card-block text-xs-center"
-								onclick="sbm('Twitter')">
+								onclick="sbm('twitter')">
 								<i class="block-icon fa fa-id-card" aria-hidden="true"></i>
 								<h4>Twitter</h4>
 							</div>
@@ -158,7 +158,7 @@
 				</div>
 			</div>
 		</div>
-		<div th:replace="layout/Footer ::footer"></div>
+		<div th:replace="layout/footer ::footer"></div>
 	</div>
 </body>
 </html>
