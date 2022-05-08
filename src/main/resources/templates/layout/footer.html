@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Footer</title>
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+	
+	<link rel="stylesheet" href="/assets/css/footer.css">
+
+<!-- Custom styles for this template -->
+<link th:href="@{/assets/css/style.min.css}" rel="stylesheet">
+
+<!-- Plugins -->
+<link th:href="@{/assets/css/ekko-lightbox.min.css}" rel="stylesheet">
+<link th:href="@{/assets/css/tether.min.css}" rel="stylesheet">
+<link th:href="@{/assets/css/owl.carousel.min.css}" rel="stylesheet">
+<link th:href="@{/assets/css/owl.carousel.theme.min.css}"
+	rel="stylesheet">
+
+<!-- Font Awesome -->
+<link th:href="@{/assets/css/font-awesome.min.css}" rel="stylesheet">
+
+<!-- Google fonts -->
+<link
+	th:href='@{https://fonts.googleapis.com/css?family=Roboto:400,300,500,100}'
+	rel='stylesheet' type='text/css'>
+<link
+	th:href='@{https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300}'
+	rel='stylesheet' type='text/css'>
+	
+<!-- Google Material Icons -->
+<link
+	th:href="@{https://fonts.googleapis.com/icon?family=Material+Icons}"
+	rel="stylesheet">
+</head>
+<body>
+   <th:block th:replce="${links}"/>
+		<footer th:flagment="footer">
+				<div class="footer text-light flex-center-md"
+					style="background-image: url()">
+					<div class="footer-overlay"
+						style="background-color: rgba(0, 0, 0, 0.8)">
+						<div class="container">
+							<div class="row">
+								<div
+									class="col-md-12 text-xs-center col-lg-3 text-lg-left text-secondary my-1">
+									<a href="#"><img
+										src="/assets/images/logos/nowsquare-light.svg" alt=""
+										style="height: 28px"></a>
+								</div>
+								<div
+									class="col-md-12 text-xs-center col-lg-9 text-lg-right text-secondary my-1">
+									<p>
+										&copy; Copyright 2017 &bull; All Rights Reserved | <a href="#">Disclaimer</a>
+										| <a href="#">Contact</a>
+									</p>
+									<div class="mt-1 hor-spacing-sm-a">
+										<a href="#" role="button" class="color-dark"><i
+											class="fa fa-envelope-o" aria-hidden="true"></i></a> <a href="#"
+											role="button" class="color-dark"><i class="fa fa-twitter"
+											aria-hidden="true"></i></a> <a href="#" role="button"
+											class="color-dark"><i class="fa fa-facebook"
+											aria-hidden="true"></i></a> <a href="#" role="button"
+											class="color-dark"><i class="fa fa-linkedin"
+											aria-hidden="true"></i></a>
+									</div>
+								</div>
+							</div>
+							<!-- /.row -->
+						</div>
+						<!-- /.container -->
+					</div>
+					<!-- /.footer-overlay -->
+				</div>
+				<!-- /.footer -->
+		</footer>
+</body>
+</html>
