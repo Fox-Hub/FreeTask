@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>モーダルダイアログ　サンプル</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+    <div th:fragment="modalempselect">
+    <!-- モーダルの設定 -->
+    <div class="modal" id="modal-emp-select" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title">従業員選択画面</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table id="modal-emplist-table" class="table table-bordered table-hover table-lg">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>従業員番号</th>
+                                <th>氏名</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <script th:inline="javascript">
+                    /*<![CDATA[*/
+                        var modalempdata = null;
+                        $(function(){
+                            // datatableの設定を変更
+                            var modalemptable = $("#modal-emplist-table").DataTable({
+                                "bPaginate": true,
+                                "bLengthChange": false,
+                                "bFilter": true,
+                                "bSort": false,
+                                "bInfo": false,
+                                "bAutoWidth": false,
+                                "language": {
+                                    "url": /*[[@{/DataTables-1.10.16/Japanese.json}]]*/ 'Japanese.json'
+                                },
+                                "ajax": { url: /*[[@{/getaccountlist}]]*/ 'getaccountlist', dataSrc: '' },
+                                "columns": [
+                                    { data: "username" },
+                                    { data: "email" },
+                                ],
+                                "columnDefs": [
+                                    { targets: 0, width: 60 },
+                                    { targets: 1, width: 180 },
+                                    {targets:'_all',className : 'dt-head-center'},
+                                ]
+                            });
+                            //一覧をクリックした
+                            $('#modal-emplist-table tbody').on("click", "tr", function() {
+                                if ($(this).find('.dataTables_empty').length == 0) {
+                                    if ( $(this).hasClass('selected') ) {
+                                        $(this).removeClass('selected');
+                                    } else {
+                                        modalemptable.$('tr.selected').removeClass('selected');
+                                        $(this).addClass('selected');
+                                    }
+                                    modalempdata=$('#modal-emplist-table').dataTable().fnGetData(this);
+                                }
+                            });
+                        })
+                    /*]]>*/
+                    </script>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="btn-modalemp-select">選択</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">キャンセル</button>
+          </div><!-- /.modal-footer -->
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div>
+    </body>
+</html>

@@ -1,19 +1,24 @@
 package com.freeTask.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
-import com.freeTask.model.TwitterForm;
+import com.freeTask.entity.Account;
+import com.freeTask.service.AccountService;
 import com.freeTask.service.TwitterService;
 
 @Controller
 public class HomeController {
 
+	@Autowired
+	private AccountService accountService;
 	@Autowired
 	private TwitterService twitterService;
 
@@ -22,9 +27,19 @@ public class HomeController {
 		return "index";
 	}
 
-	@GetMapping("/UserMgm")
-	public String UserMgm() {
-		return "tile/UserMgm";
+	@GetMapping("/userMgm")
+	public String UserMgm(Model model) {
+		List<String> typeList = new ArrayList<String>();
+		List<Account> accountList = new ArrayList<Account>();
+		accountList = accountService.findAll();
+		
+		List<String> temp = new ArrayList<String>();
+		accountList.stream().forEach(account -> temp.add(account.getType()));
+		temp.stream().distinct().forEach(type -> typeList.add(type));
+		model.addAttribute("typeList", typeList);
+		model.addAttribute("accountList", accountList);
+		
+		return "tile/userMgm";
 	}
 
 	@GetMapping("/twitter")

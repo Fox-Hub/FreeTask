@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class SignInController {
 	
-	@GetMapping("/signOut")
-	public String signOut() {
-		return "signOut";
+	@GetMapping("/signUp")
+	public String signUp() {
+		return "signUp";
 	}
 }
