@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class SignOut {
+public class SignUp {
 	
 	@NotBlank(message = "ユーザーIDを入力してください")
 	private String username;

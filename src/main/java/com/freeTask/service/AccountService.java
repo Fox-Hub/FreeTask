@@ -17,13 +17,60 @@ public class AccountService {
 
 	@Autowired
 	private SpringUserService springUserService;
-
-	public List<Account> getAccountList() {
+	
+	@Transactional
+	public List<Account> findAll() {
 		return accountRepository.findAll();
 	}
 
+	@Transactional
 	public Account find(String username) {
 		return accountRepository.findById(username).get();
+	}
+	
+	@Transactional
+	public List<Account> getAccountListType(String type){
+		return accountRepository.findByType(type);
+	}
+	
+	@Transactional
+	public List<Account> getAccountListUsername(String username){
+		return accountRepository.findByUsername(username);
+	}
+	
+	@Transactional
+	public List<Account> getAccountListUsernameAndType(String username, String type){
+		return accountRepository.findByUsernameAndType(username, type);
+	}
+	
+	@Transactional
+	public List<Account> getAccountListUsernameAndActiveTrue(String username){
+		return accountRepository.findByUsernameAndActiveTrue(username);
+	}
+	
+	@Transactional
+	public List<Account> getAccountListUsernameAndActiveFalse(String username){
+		return accountRepository.findByUsernameAndActiveFalse(username);
+	}
+	
+	@Transactional
+	public List<Account> getAccountListTypeAndActiveTrue(String type){
+		return accountRepository.findByTypeAndActiveTrue(type);
+	}
+	
+	@Transactional
+	public List<Account> getAccountListTypeAndActiveFalse(String type){
+		return accountRepository.findByTypeAndActiveFalse(type);
+	}
+	
+	@Transactional
+	public List<Account> getAccountListActiveTrue(){
+		return accountRepository.findByActiveTrue();
+	}
+	
+	@Transactional
+	public List<Account> getAccountListActiveFalse(){
+		return accountRepository.findByActiveFalse();
 	}
 
 	@Transactional
