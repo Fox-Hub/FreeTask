@@ -32,13 +32,13 @@ public class HomeController {
 		List<String> typeList = new ArrayList<String>();
 		List<Account> accountList = new ArrayList<Account>();
 		accountList = accountService.findAll();
-		
+
 		List<String> temp = new ArrayList<String>();
 		accountList.stream().forEach(account -> temp.add(account.getType()));
 		temp.stream().distinct().forEach(type -> typeList.add(type));
 		model.addAttribute("typeList", typeList);
 		model.addAttribute("accountList", accountList);
-		
+
 		return "tile/userMgm";
 	}
 
@@ -69,7 +69,7 @@ public class HomeController {
 
 		if (!tweetMap.isEmpty())
 			model.addAttribute("tweetMap", tweetMap);
-		
+
 		return "tile/twitter";
 	}
 
@@ -86,11 +86,6 @@ public class HomeController {
 	@GetMapping("Setting")
 	public String Setting() {
 		return "tile/Setting";
-	}
-
-	@GetMapping("GitHub")
-	public String GitHub() {
-		return "tile/GitHub";
 	}
 
 }
