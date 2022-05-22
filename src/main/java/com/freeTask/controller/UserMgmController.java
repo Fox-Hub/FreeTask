@@ -39,8 +39,6 @@ public class UserMgmController {
 				|| (userMgmForm.getActive().length == 0 || userMgmForm.getActive().length == 2))
 			isActive = true;
 		
-		System.out.println("user = " + isUsername + "type = " + isType + "active = " + isActive);
-
 		if ((!isUsername && !isType && !isActive) || (isUsername && isType && isActive))
 			accountList = accountService.findAll();
 		else if (!isUsername) {

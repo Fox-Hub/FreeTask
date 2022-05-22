@@ -4,12 +4,13 @@
 	layout:decorate="~{layout/navigationBar}">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
-<title>FreeTask</title>
+<title>YouTube</title>
 
 <!-- Bootstrap core CSS -->
 <link th:href="@{/assets/css/bootstrap.min.css}" rel="stylesheet">
@@ -45,8 +46,12 @@
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
 
-<!-- JavaScript
-    ================================================== -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css}">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+<link th:href="@{/assets/css/youTube.css}" rel="stylesheet">
+
 <script>
 	window.jQuery
 			|| document
@@ -62,10 +67,6 @@
 <script th:src="@{/assets/js/scripts.min.js}"></script>
 
 <script
-	th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js}"></script>
-
-
-<script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
 	integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
 	crossorigin="anonymous"></script>
@@ -74,103 +75,48 @@
 	integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 	crossorigin="anonymous"></script>
 
-<script>
-	function sbm(formName) {
-		document.getElementsByName(formName)[0].submit();
-	}
-
-	function openGit() {
-		const url = "https://github.com/Fox-Hub/FreeTask";
-		window.open(url, "_blank");
-	}
-</script>
+<script type="text/javascript"
+	src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" th:src="@{/assets/js/common.js}"></script>
 
 </head>
 <body>
 
 	<div layout:fragment="contents">
-
-		<div class="container-fluid">
+		<div class="container">
 			<div class="row">
-				<div class="col-xs-12 my-2">
-					<h2>Home Icons</h2>
-				</div>
-			</div>
-		</div>
-
-		<div class="container cards cards-hover">
-			<div class="row">
-				<div class="col-xs-6 col-lg-4" sec:authorize="hasRole('ADMIN')">
-					<form th:action="@{/userMgm}" method="get" name="userMgm">
-						<div class="card-block-link">
-							<div class='card card-block text-xs-center'
-								onclick="sbm('userMgm')">
-								<i class="block-icon fa fa-user-circle" aria-hidden="true"></i>
-								<h4>UserMgm</h4>
-							</div>
-						</div>
-					</form>
-				</div>
-				<div class="col-xs-6 col-lg-4">
-					<form th:action="@{/twitter}" method="get" name="twitter">
-						<div class="card-block-link">
-							<div class="card card-block text-xs-center"
-								onclick="sbm('twitter')">
-								<i class="block-icon fa fa-id-card" aria-hidden="true"></i>
-								<h4>Twitter</h4>
-							</div>
-						</div>
-					</form>
-				</div>
-				<div class="col-xs-6 col-lg-4">
-					<form th:action="@{/youTube}" method="get" name="YouTube">
-						<div class="card-block-link">
-							<div class="card card-block text-xs-center"
-								onclick="sbm('youTube')">
-								<i class="block-icon fa fa-user-circle" aria-hidden="true"></i>
-								<h4>YouTube</h4>
-							</div>
-						</div>
-					</form>
-				</div>
-				<div class="col-xs-6 col-lg-4">
-					<form th:action="@{/Chat}" method="get" name="Chat">
-						<div class="card-block-link">
-							<div class="card card-block text-xs-center" onclick="sbm('Chat')">
-								<i class="block-icon fa fa-envelope-open" aria-hidden="true"></i>
-								<h4>Chat</h4>
-							</div>
-						</div>
-					</form>
-				</div>
-				<div class="col-xs-6 col-lg-4">
-					<form th:action="@{/Setting}" method="get" name="Setting">
-						<div class="card-block-link">
-							<div class="card card-block text-xs-center"
-								onclick="sbm('Setting')">
-								<i class="block-icon fa fa-commenting" aria-hidden="true"></i>
-								<h4>Setting</h4>
-							</div>
-						</div>
-					</form>
-				</div>
-				<div class="col-xs-6 col-lg-4">
-					<div class="card-block-link">
-						<div class="card card-block text-xs-center" onclick="openGit()">
-							<i class="block-icon fa fa-plane" aria-hidden="true"></i>
-							<h4>GitHub</h4>
+				<div class="mb-5">
+					<div class="row">
+						<div class="col-xs-12 my-2">
+							<h1>YouTube</h1>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-xs-12 my-2">
-					<h2>Products</h2>
-				</div>
-			</div>
+			<h3>Posted video</h3>
+			<ul class="slider">
+				<li><iframe width="560" height="315"
+						src="https://www.youtube.com/embed/Xanh3PXRdug"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe></li>
+				<li><iframe width="560" height="315"
+						src="https://www.youtube.com/embed/PTjsLiLOTPA"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe></li>
+				<li><iframe width="560" height="315"
+						src="https://www.youtube.com/embed/bgwZzFhJodU"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe></li>
+				<li><iframe width="560" height="315"
+						src="https://www.youtube.com/embed/UyL604iIpQ0"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe></li>
+				<!--/slider-->
+			</ul>
 		</div>
 		<div th:replace="layout/footer ::footer"></div>
 	</div>
