@@ -73,9 +73,9 @@ public class HomeController {
 		return "tile/twitter";
 	}
 
-	@GetMapping("/YouTube")
+	@GetMapping("/youTube")
 	public String YouTube() {
-		return "tile/YouTube";
+		return "tile/youTube";
 	}
 
 	@GetMapping("Chat")
