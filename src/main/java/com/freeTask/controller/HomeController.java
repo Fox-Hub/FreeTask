@@ -11,8 +11,11 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.freeTask.entity.Account;
+import com.freeTask.model.TwitterForm;
 import com.freeTask.service.AccountService;
 import com.freeTask.service.TwitterService;
+
+import twitter4j.Status;
 
 @Controller
 public class HomeController {
@@ -43,29 +46,28 @@ public class HomeController {
 	}
 
 	@GetMapping("/twitter")
-	public String Twitter(Model model) {
+	public String Twitter(Model model, TwitterForm twitterForm) {
 		MultiValueMap<String, String> tweetMap = new LinkedMultiValueMap<String, String>();
-		tweetMap.add("TestUser", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		tweetMap.add("TestUser2", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		tweetMap.add("TestUser3", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		tweetMap.add("TestUser4", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		tweetMap.add("TestUser5", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		tweetMap.add("TestUser6", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		tweetMap.add("TestUser7", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		tweetMap.add("TestUser8", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		tweetMap.add("TestUser9", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		tweetMap.add("TestUser10", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		tweetMap.add("TestUser11", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		tweetMap.add("TestUser12", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		tweetMap.add("TestUser13", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		tweetMap.add("TestUser14", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		tweetMap.add("TestUser15", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//		tweetMap.add("TestUser", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//		tweetMap.add("TestUser2", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//		tweetMap.add("TestUser3", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//		tweetMap.add("TestUser4", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//		tweetMap.add("TestUser5", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//		tweetMap.add("TestUser6", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//		tweetMap.add("TestUser7", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//		tweetMap.add("TestUser8", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//		tweetMap.add("TestUser9", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//		tweetMap.add("TestUser10", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//		tweetMap.add("TestUser11", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//		tweetMap.add("TestUser12", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//		tweetMap.add("TestUser13", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//		tweetMap.add("TestUser14", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//		tweetMap.add("TestUser15", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 
-//		Map<String, String> tweetMap = new HashMap<String, String>();
-//		List<Status> tweetList = twitterService.getTwieet(twitterForm.getKeyWord());
-//		for(Status status : tweetList) {
-//			tweetMap.add(status.getUser().getName(), status.getText());
-//		}
+		List<Status> tweetList = twitterService.getTwieet("Twitter");
+		for(Status status : tweetList) {
+			tweetMap.add(status.getUser().getName(), status.getText());
+		}
 
 		if (!tweetMap.isEmpty())
 			model.addAttribute("tweetMap", tweetMap);

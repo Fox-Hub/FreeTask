@@ -94,29 +94,51 @@
 				</div>
 			</div>
 			<h3>Posted video</h3>
-			<ul class="slider">
-				<li><iframe width="560" height="315"
-						src="https://www.youtube.com/embed/Xanh3PXRdug"
-						title="YouTube video player" frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowfullscreen></iframe></li>
-				<li><iframe width="560" height="315"
-						src="https://www.youtube.com/embed/PTjsLiLOTPA"
-						title="YouTube video player" frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowfullscreen></iframe></li>
-				<li><iframe width="560" height="315"
-						src="https://www.youtube.com/embed/bgwZzFhJodU"
-						title="YouTube video player" frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowfullscreen></iframe></li>
-				<li><iframe width="560" height="315"
-						src="https://www.youtube.com/embed/UyL604iIpQ0"
-						title="YouTube video player" frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowfullscreen></iframe></li>
-				<!--/slider-->
-			</ul>
+			<div class="mb-5">
+				<ul class="slider">
+					<li><iframe width="560" height="315"
+							src="https://www.youtube.com/embed/Xanh3PXRdug"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe></li>
+					<li><iframe width="560" height="315"
+							src="https://www.youtube.com/embed/PTjsLiLOTPA"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe></li>
+					<li><iframe width="560" height="315"
+							src="https://www.youtube.com/embed/bgwZzFhJodU"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe></li>
+					<li><iframe width="560" height="315"
+							src="https://www.youtube.com/embed/UyL604iIpQ0"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe></li>
+				</ul>
+			</div>
+			<h3>Ranking</h3>
+			<form method="get" th:action="@{/youTube/searchVideo}">
+				<button id="searchVideo" name="searchVideo" type="submit"
+					class="tweet btn-blue btn-pill btn-lg">Search</button>
+			</form>
+			<h3>VideoList</h3>
+			<div class="mb-5">
+				<table class="table table-light">
+					<thead class="thead-dark">
+						<tr>
+							<th style="width: 10%"></th>
+							<th style="width: 10%">Title</th>
+							<th style="width: 70%">URL</th>
+						</tr>
+					</thead>
+					<tr th:each="tweet : ${tweetMap}">
+						<td th:text="${tweet.key}"></td>
+						<td th:text="${tweet.value}"></td>
+					</tr>
+				</table>
+			</div>
 		</div>
 		<div th:replace="layout/footer ::footer"></div>
 	</div>
