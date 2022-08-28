@@ -80,14 +80,15 @@ public class HomeController {
 		return "tile/youTube";
 	}
 
-	@GetMapping("Chat")
+	@GetMapping("/chat")
 	public String Chat() {
-		return "tile/Chat";
+		System.out.println("here");
+		return "tile/chat";
 	}
 
-	@GetMapping("Setting")
+	@GetMapping("/setting")
 	public String Setting() {
-		return "tile/Setting";
+		return "tile/setting";
 	}
 
 }
